@@ -6,13 +6,13 @@ export function toggleMobileMenu() {
 
   if (mobileNav.classList.contains("hidden")) {
     mobileNav.classList.remove("hidden");
+    mobileNav.classList.add("flex");
     hamburgerIcon.classList.add("hidden");
     hamburgerCloseIcon.classList.remove("hidden");
-    hamburgerBtn.setAttribute("aria-expanded", "true");
   } else {
     mobileNav.classList.add("hidden");
+    mobileNav.classList.remove("flex");
     hamburgerIcon.classList.remove("hidden");
     hamburgerCloseIcon.classList.add("hidden");
-    hamburgerBtn.setAttribute("aria-expanded", "false");
   }
 }

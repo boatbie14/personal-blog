@@ -15,25 +15,20 @@ function Navbar() {
           </nav>
 
           <button
-            data-collapse-toggle="navbar-default"
             type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             onClick={toggleMobileMenu}
           >
-            <span class="sr-only">Open main menu</span>
-
             <svg
               id="hamburger-ic"
               xmlns="http://www.w3.org/2000/svg"
               fill="#26231e"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="size-6"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
             </svg>
 
             <svg
@@ -41,11 +36,11 @@ function Navbar() {
               xmlns="http://www.w3.org/2000/svg"
               fill="#26231e"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="size-6 hidden"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -53,7 +48,7 @@ function Navbar() {
       {/* /.container */}
       <nav
         id="nav-mobile"
-        className="container bg-[#f9f8f6] flex flex-col px-6 py-10 gap-6 shadow-[2px_2px_16px_0px_rgba(0,0,0,0.10)] top-[63px] left-0 absolute z-[1000] hidden"
+        className="container bg-[#f9f8f6] flex-col px-6 py-10 gap-6 shadow-[2px_2px_16px_0px_rgba(0,0,0,0.10)] top-[63px] left-0 absolute z-[1000] hidden"
       >
         <button className="black-outline-btn">Login</button>
         <button className="black-btn">Sign Up</button>
