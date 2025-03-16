@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
+import ArticleSection from "./components/ArticleSection";
 import Footer from "./components/Footer";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Navbar />
       <HeroSection />
+      <ArticleSection />
       <Footer />
     </>
   );
