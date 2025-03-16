@@ -47,7 +47,7 @@ function Footer() {
           <div className="footer-nav flex flex-col sm:flex-row gap-4">
             {Object.entries(footerLink).map(([text, link]) => {
               return (
-                <a href={link} className="link text-center">
+                <a key={text} href={link} className="link text-center">
                   {text}
                 </a>
               );

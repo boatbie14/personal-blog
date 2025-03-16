@@ -29,6 +29,10 @@ a.link {
   text-decoration: underline;
 }
 
+a.link:hover {
+  color: var(--color-brown-400);
+}
+
 p {
   color: var(--color-brown-400);
   font-size: 16px;
@@ -51,10 +55,12 @@ header #logo-header {
 
 @media only screen and (max-width: 1024px) {
   .container {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
+
+/*-- Botton --*/
 
 .black-btn {
   color: #fff;
@@ -62,7 +68,13 @@ header #logo-header {
   padding: 12px 40px;
   background-color: var(--color-brown-600);
   border-radius: 24px;
+  cursor: pointer;
 }
+
+.black-btn:hover {
+  background-color: var(--color-brown-400);
+}
+
 .black-outline-btn {
   font-weight: 500;
   padding: 11px 39px;
@@ -70,6 +82,19 @@ header #logo-header {
   background-color: var(--color-brown-100);
   border: 1px solid var(--color-brown-600);
   border-radius: 24px;
+  cursor: pointer;
+}
+
+.black-outline-btn:hover {
+  color: var(--color-brown-400);
+  border: 1px solid var(--color-brown-400);
+}
+
+/*-- Filter Btn --*/
+.filter-btn-container ul li.active {
+  background-color: #dad6d1;
+  color: #43403b;
+  border-radius: 8px;
 }
 
 /*-- Footer --*/
@@ -85,6 +110,9 @@ footer .get-in-touch {
   width: 24px;
   height: 24px;
   background-color: var(--color-brown-500);
+}
+.footer-icon-wrapper:hover {
+  background-color: var(--color-brown-400);
 }
 
 .footer-icon-wrapper svg.footer-icon {
