@@ -11,9 +11,11 @@ function BlogCard({ articles }) {
       {articles.map((article) => {
         return (
           <div key={article.id} className="card flex flex-col gap-4 w-full sm:w-[calc(50%-16px)] sm:pb-10">
-            <a href={article.url}>
-              <img src={article.image} className="article-img rounded-2xl" />
-            </a>
+            <div className="w-full h-[236px] md:h-[516px]">
+              <a href={article.url}>
+                <img src={article.image} className="article-img w-full h-full object-cover rounded-2xl" />
+              </a>
+            </div>
             <div className="category-badge w-fit bg-[#D7F2E9] text-[#12B279] px-3 py-1 rounded-full">{article.category}</div>
             <a href={article.url}>
               <h3 className="article-title text-xl font-semibold leading-7">{article.title}</h3>
