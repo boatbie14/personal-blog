@@ -1,4 +1,4 @@
-import { articleData } from "./data/blogPosts";
+import { blogPosts } from "./data/blogPosts";
 import BlogCard from "./BlogCard";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -50,7 +50,7 @@ function ArticleSection() {
           </div>
         </div>
         <div className="container">
-          <BlogCard articles={articleData} />
+          <BlogCard articles={blogPosts} />
         </div>
       </section>
     </>
