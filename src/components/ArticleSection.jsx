@@ -1,10 +1,18 @@
-import { blogPosts } from "./data/blogPosts";
+import { useState } from "react";
 import BlogCard from "./BlogCard";
+import { blogPosts } from "./data/blogPosts";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
 
 function ArticleSection() {
+  const categories = ["Highlight", "Cat", "Inspiration", "General"];
+  const [selectCategory, setSelectCategory] = useState("");
+
+  function handleSelectCategory(value) {
+    setSelectCategory(value);
+  }
+
   return (
     <>
       <section id="article-section">
@@ -15,10 +23,21 @@ function ArticleSection() {
           <div className="container bg-[#EFEEEB] py-4 px-8 rounded-none md:rounded-xl flex flex-col sm:flex-row gap-4 items-center">
             <div className="filter-btn-container hidden md:flex md:w-3/4 text-[#75716B] ">
               <ul className="flex flex-row space-x-2">
-                <li className="py-3 px-5 active">All</li>
-                <li className="py-3 px-5">Highlight</li>
-                <li className="py-3 px-5">Cat</li>
-                <li className="py-3 px-5">JavaScript</li>
+                <li
+                  className={`py-3 px-5 cursor-pointer ${selectCategory === "" ? "active" : ""}`}
+                  onClick={() => handleSelectCategory("")}
+                >
+                  All
+                </li>
+                {categories.map((category) => (
+                  <li
+                    key={category}
+                    className={`py-3 px-5 cursor-pointer ${selectCategory === category ? "active" : ""}`}
+                    onClick={() => handleSelectCategory(category)}
+                  >
+                    {category}
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="searchArticle w-full md:w-1/4 relative">
@@ -33,7 +52,7 @@ function ArticleSection() {
             </div>
             <div className="selectCategory w-full md:hidden">
               <p className="pb-[4px]">Category</p>
-              <Select>
+              <Select onValueChange={handleSelectCategory}>
                 <SelectTrigger
                   id="category"
                   className="w-full bg-white py-5 pr-3 pl-4 data-[placeholder]:!text-[#75716B] data-[placeholder]:!text-base [&_svg]:!text-[#26231E] [&_svg]:!opacity-100"
@@ -41,16 +60,18 @@ function ArticleSection() {
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="light">Light</SelectItem>
-                  <SelectItem value="dark">Dark</SelectItem>
-                  <SelectItem value="system">System</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
           </div>
         </div>
         <div className="container">
-          <BlogCard articles={blogPosts} />
+          <BlogCard articles={blogPosts} fliterCategory={selectCategory} />
         </div>
       </section>
     </>
