@@ -1,16 +1,38 @@
 import { useState } from "react";
 import BlogCard from "./BlogCard";
-import { blogPosts } from "./data/blogPosts";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
+import { handler } from "tailwindcss-animate";
 
 function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
   const [selectCategory, setSelectCategory] = useState("");
+  const [page, setPage] = useState(1);
+  const [showViewMoreButton, setShowViewMoreButton] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
-  function handleSelectCategory(value) {
-    setSelectCategory(value);
+  function handleSelectCategory(e) {
+    let newSelectCategory = "";
+    if (e.target.value === "") {
+      newSelectCategory = "";
+    } else {
+      newSelectCategory = e.target.value;
+    }
+    setSelectCategory(newSelectCategory);
+    setPage(1);
+  }
+  
+  function handleViewMore() {
+    setPage((prevPage) => prevPage + 1);
+  }
+
+  function updateHasMore(hasMoreValue) {
+    setShowViewMoreButton(hasMoreValue);
+  }
+
+  function handleSearchInput(e) {
+    setSearchText(e.target.value);
   }
 
   return (
@@ -22,29 +44,33 @@ function ArticleSection() {
         <div id="article-search">
           <div className="container bg-[#EFEEEB] py-4 px-8 rounded-none md:rounded-xl flex flex-col sm:flex-row gap-4 items-center">
             <div className="filter-btn-container hidden md:flex md:w-3/4 text-[#75716B] ">
-              <ul className="flex flex-row space-x-2">
-                <li
+              <div className="filter-btn-wrap flex flex-row space-x-2">
+                <button
                   className={`py-3 px-5 cursor-pointer ${selectCategory === "" ? "active" : ""}`}
-                  onClick={() => handleSelectCategory("")}
+                  onClick={handleSelectCategory}
+                  value=""
                 >
                   All
-                </li>
+                </button>
                 {categories.map((category) => (
-                  <li
+                  <button
                     key={category}
                     className={`py-3 px-5 cursor-pointer ${selectCategory === category ? "active" : ""}`}
-                    onClick={() => handleSelectCategory(category)}
+                    onClick={handleSelectCategory}
+                    value={category}
                   >
                     {category}
-                  </li>
+                  </button>
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="searchArticle w-full md:w-1/4 relative">
               <Input
                 type="text"
                 placeholder="Search"
                 className="bg-white placeholder:text-[#75716B] placeholder:text-[16px] py-5 pr-3 pl-4"
+                onChange={handleSearchInput}
+                value={searchText}
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <Search className="h-5 w-5 text-[#26231E]" />
@@ -71,7 +97,17 @@ function ArticleSection() {
           </div>
         </div>
         <div className="container">
-          <BlogCard articles={blogPosts} fliterCategory={selectCategory} />
+          <BlogCard fliterCategory={selectCategory} page={page} updateHasMore={updateHasMore} />
+        </div>
+
+        <div className="container pb-20 text-center">
+          {showViewMoreButton ? (
+            <button className="border-1 border-black py-4 px-10 rounded-full cursor-pointer" onClick={handleViewMore}>
+              View More
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
       </section>
     </>
