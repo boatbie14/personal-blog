@@ -91,7 +91,7 @@ header #logo-header {
 }
 
 /*-- Filter Btn --*/
-.filter-btn-container ul li.active {
+.filter-btn-container .filter-btn-wrap button.active {
   background-color: #dad6d1;
   color: #43403b;
   border-radius: 8px;
