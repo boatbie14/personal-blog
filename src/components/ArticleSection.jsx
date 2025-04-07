@@ -3,7 +3,6 @@ import BlogCard from "./BlogCard";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
-import { handler } from "tailwindcss-animate";
 
 function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
@@ -22,7 +21,7 @@ function ArticleSection() {
     setSelectCategory(newSelectCategory);
     setPage(1);
   }
-  
+
   function handleViewMore() {
     setPage((prevPage) => prevPage + 1);
   }
@@ -65,15 +64,17 @@ function ArticleSection() {
               </div>
             </div>
             <div className="searchArticle w-full md:w-1/4 relative">
-              <Input
-                type="text"
-                placeholder="Search"
-                className="bg-white placeholder:text-[#75716B] placeholder:text-[16px] py-5 pr-3 pl-4"
-                onChange={handleSearchInput}
-                value={searchText}
-              />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <Search className="h-5 w-5 text-[#26231E]" />
+              <div>
+                <Input
+                  type="text"
+                  placeholder="Search"
+                  className="bg-white placeholder:text-[#75716B] placeholder:text-[16px] py-5 pr-3 pl-4"
+                  onChange={handleSearchInput}
+                  value={searchText}
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <Search className="h-5 w-5 text-[#26231E]" />
+                </div>
               </div>
             </div>
             <div className="selectCategory w-full md:hidden">

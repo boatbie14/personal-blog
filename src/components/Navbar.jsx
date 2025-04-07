@@ -1,12 +1,15 @@
 import { toggleMobileMenu } from "../utils/navbarUtils";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <header className="w-full border-b border-[#DAD6D1]">
       <div className="container flex py-[10px] bg-[#f9f8f6] md:py-4 relative z-[9999]">
-        <div id="logo-header" className="flex items-center gap-2 w-2/3 md:w-1/2 md:gap-4">
-          <img src="/assets/images/thedogdev_logo.svg" className="w-8 md:w-11" alt="The Dog Dev Logo" />
-          <span className="luckiest-guy-regular text-2xl md:text-3xl">The Dog Dev</span>
+        <div id="logo-header" className=" w-2/3 md:w-1/2">
+          <Link to="/" className="flex items-center gap-2 md:gap-4">
+            <img src="/assets/images/thedogdev_logo.svg" className="w-8 md:w-11" alt="The Dog Dev Logo" />
+            <span className="luckiest-guy-regular text-2xl md:text-3xl">The Dog Dev</span>
+          </Link>
         </div>
         <div id="nav-container" className="w-1/3 md:w-1/2 flex justify-end">
           <nav id="nav-desktop" className="hidden md:flex gap-3">

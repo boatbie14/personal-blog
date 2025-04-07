@@ -5,6 +5,7 @@
   --color-brown-300: #dad6d1;
   --color-brown-200: #efeeeb;
   --color-brown-100: #f9f8f6;
+  --color-white: #f9f8f6;
 }
 
 body {
@@ -60,6 +61,7 @@ header #logo-header {
   }
 }
 
+/**************/
 /*-- Botton --*/
 
 .black-btn {
@@ -90,11 +92,36 @@ header #logo-header {
   border: 1px solid var(--color-brown-400);
 }
 
+button.black {
+  background-color: var(--color-brown-600);
+  color: var(--color-white);
+  padding: 12px 40px;
+  border-radius: 999px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/******************/
+/* Category Badge */
+/******************/
+.category-badge {
+  @apply w-fit bg-[#D7F2E9] text-[#12B279] px-3 py-1 rounded-full;
+}
+
+/******************/
 /*-- Filter Btn --*/
+/******************/
 .filter-btn-container .filter-btn-wrap button.active {
   background-color: #dad6d1;
   color: #43403b;
   border-radius: 8px;
+}
+/*****************/
+/*-- Post Link --*/
+/*****************/
+
+a.post-link h3:hover {
+  text-decoration: underline;
 }
 
 /*-- Footer --*/
