@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { Button } from "./ui/button";
 
 function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
@@ -10,6 +13,16 @@ function ArticleSection() {
   const [page, setPage] = useState(1);
   const [showViewMoreButton, setShowViewMoreButton] = useState(true);
   const [searchText, setSearchText] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [hasSearchResult, setHasSearchResult] = useState(false);
+
+  useEffect(() => {
+    if (searchText.length >= 3) {
+      getSearchResult(searchText);
+    } else {
+      setHasSearchResult(false);
+    }
+  }, [searchText]);
 
   function handleSelectCategory(e) {
     let newSelectCategory = "";
@@ -33,6 +46,18 @@ function ArticleSection() {
   function handleSearchInput(e) {
     setSearchText(e.target.value);
   }
+
+  async function getSearchResult(text) {
+    try {
+      const response = await axios.get(`https://blog-post-project-api.vercel.app/posts?keyword=${text}`);
+      setSearchResult(response.data.posts);
+      setHasSearchResult(true);
+    } catch (e) {
+      console.log("Can't fetch data");
+    }
+  }
+
+  console.log(searchResult);
 
   return (
     <>
@@ -72,10 +97,50 @@ function ArticleSection() {
                   onChange={handleSearchInput}
                   value={searchText}
                 />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                  <Search className="h-5 w-5 text-[#26231E]" />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                  {hasSearchResult ? (
+                    <X
+                      className="h-5 w-5 text-[#26231E] bg-[#F9F8F6] cursor-pointer z-50"
+                      onClick={(e) => {
+                        e.stopPropagation(); // ป้องกัน event bubble ไปที่ element อื่น
+                        setHasSearchResult(false);
+                        setSearchText("");
+                      }}
+                    />
+                  ) : (
+                    <Search className="h-5 w-5 text-[#26231E]" />
+                  )}
                 </div>
               </div>
+
+              {/* Search Result */}
+
+              {hasSearchResult ? (
+                <>
+                  {searchResult.length > 0 ? (
+                    <div className="bg-[#F9F8F6] shadow-2xl p-2 w-full mt-1 rounded-sm absolute flex flex-col">
+                      {searchResult.slice(0, 4).map((data) => {
+                        return (
+                          <Link
+                            to={`/post/${data.id}`}
+                            key={data.id}
+                            href="#"
+                            className="search-link text-md p-2 block hover:bg-[#DAD6D1] hover:text-[#43403B] rounded-sm"
+                          >
+                            {data.title}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="bg-[#F9F8F6] shadow-2xl p-4 w-full mt-1 rounded-sm absolute flex flex-col gap-4">Not Found Post</div>
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
+
+              {/* Search Result */}
             </div>
             <div className="selectCategory w-full md:hidden">
               <p className="pb-[4px]">Category</p>
