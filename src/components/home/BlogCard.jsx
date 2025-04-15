@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { changeDateFormat } from "@/utils/changeDateFormatUtils";
 import Lottie from "lottie-react";
-import loadingLottie from "../lotties/loading.json";
+import loadingLottie from "@/lotties/loading.json";
 
 function BlogCard({ fliterCategory, page, updateHasMore }) {
   const [blogData, setBlogData] = useState([]);
