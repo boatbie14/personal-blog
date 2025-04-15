@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import ArticleSection from "@/components/ArticleSection";
+import HeroSection from "@/components/home/HeroSection";
+import ArticleSection from "@/components/home/ArticleSection";
 import Footer from "@/components/Footer";
 
 function Home() {
