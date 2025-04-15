@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useDocumentMeta from "@/hooks/useDocumentMeta";
 
 function PostPage() {
   const { postId } = useParams();
@@ -29,6 +30,12 @@ function PostPage() {
     }
   }
 
+  useDocumentMeta({
+    title: postData.title,
+    description: postData.content,
+    image: postData.image,
+  });
+
   return (
     <>
       <Navbar />
@@ -47,7 +54,7 @@ function PostPage() {
         </div>
         <div className="container like-share">
           <div className="col-left">
-            <SocialSection likes={postData.likes} />
+            <SocialSection likes={postData.likes} title={postData.title} content={postData.content} />
           </div>
         </div>
         <div className="container">
