@@ -1,12 +1,11 @@
 import "@/styles/postpage.css";
-import Navbar from "@/components/Navbar";
+import MainLayout from "@/layouts/MainLayout";
 import PostImage from "@/components/post/PostImage";
 import PostContent from "@/components/post/PostContent";
 import AuthorCard from "@/components/post/AuthorCard";
 import ReviewPost from "@/components/post/ReviewPost";
 import SocialSection from "@/components/post/SocialSection";
 import CommentForm from "@/components/post/CommentForm";
-import Footer from "@/components/Footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -37,8 +36,7 @@ function PostPage() {
   });
 
   return (
-    <>
-      <Navbar />
+    <MainLayout>
       <section id="post-page" className="row">
         <div className="container post-page-img">
           <PostImage image={postData.image} />
@@ -64,8 +62,7 @@ function PostPage() {
           </div>
         </div>
       </section>
-      <Footer />
-    </>
+    </MainLayout>
   );
 }
 
