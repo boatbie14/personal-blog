@@ -72,14 +72,14 @@ function BlogCard({ fliterCategory, page, updateHasMore }) {
           return (
             <div key={`${article.id}-${index}`} className="card flex flex-col gap-4 w-full sm:w-[calc(50%-16px)] sm:pb-10">
               <div className="w-full h-[236px] md:h-[516px]">
-                <Link to={`/post/${article.id}`}>
+                <a href={`/post/${article.id}`}>
                   <img src={article.image} className="article-img w-full h-full object-cover rounded-2xl" />
-                </Link>
+                </a>
               </div>
               <div className="category-badge">{article.category}</div>
-              <Link to={`/post/${article.id}`} className="post-link">
+              <a href={`/post/${article.id}`}>
                 <h3 className="article-title text-xl font-semibold leading-7">{article.title}</h3>
-              </Link>
+              </a>
               <p className="text-sm">{countExcerpt(article.description)}</p>
               <div className="card-info-wrap flex">
                 <img src="/assets/images/blog/blog-img1.jpeg" className="w-6 h-6 mr-4 rounded-full" />
