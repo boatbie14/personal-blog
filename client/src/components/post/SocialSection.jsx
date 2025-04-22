@@ -5,9 +5,6 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { TfiLinkedin } from "react-icons/tfi";
 import useCheckLogin from "@/hooks/useCheckLogin";
 import useSonner from "@/hooks/useSonner";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { Toaster } from "sonner";
 
 function SocialSection(postData) {
   const { showAlert, hideAlert, AlertDialog } = useCheckLogin();
@@ -74,8 +71,6 @@ function SocialSection(postData) {
           <RiTwitterXLine className="icon" color="#fff" />
         </button>
       </div>
-
-      <Toaster richColors />
     </div>
   );
 }

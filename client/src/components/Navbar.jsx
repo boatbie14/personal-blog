@@ -13,8 +13,12 @@ function Navbar() {
         </div>
         <div id="nav-container" className="w-1/3 md:w-1/2 flex justify-end">
           <nav id="nav-desktop" className="hidden md:flex gap-3">
-            <button className="black-outline-btn">Login</button>
-            <button className="black-btn">Sign Up</button>
+            <Link to="/login" className="black-outline-btn">
+              Login
+            </Link>
+            <Link to="/signup" className="black-btn">
+              Sign Up
+            </Link>
           </nav>
 
           <button
