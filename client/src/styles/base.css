@@ -80,6 +80,7 @@ footer {
   color: #fff;
   font-weight: 500;
   padding: 12px 40px;
+  text-align: center;
   background-color: var(--color-brown-600);
   border-radius: 24px;
   cursor: pointer;
@@ -117,7 +118,14 @@ button.black {
 /* Category Badge */
 /******************/
 .category-badge {
-  @apply w-fit bg-[#D7F2E9] text-[#12B279] px-3 py-1 rounded-full;
+  width: fit-content;
+  background-color: #d7f2e9;
+  color: #12b279;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
 }
 
 /******************/
@@ -134,6 +142,45 @@ button.black {
 
 a.post-link h3:hover {
   text-decoration: underline;
+}
+
+/************/
+/*-- Form --*/
+/************/
+
+.form-container {
+  max-width: 720px;
+  background-color: var(--color-brown-200);
+  padding: 60px 120px;
+  margin: auto;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-container label {
+  font-size: 16px;
+  display: block;
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+.form-container input {
+  background-color: #fff;
+  border: 1px solid #dad6d1;
+}
+
+@media only screen and (max-width: 1024px) {
+  .form-container {
+    padding: 40px 16px;
+  }
 }
 
 /*-- Footer --*/
