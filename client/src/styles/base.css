@@ -19,11 +19,6 @@ body,
   background-color: var(--color-brown-100);
   font-family: "Poppins", sans-serif;
 }
-
-main {
-  flex: 1 0 auto;
-}
-
 h1,
 h2,
 h3 {
@@ -48,33 +43,7 @@ p {
   line-height: 24px;
 }
 
-/* Header */
-header {
-  padding: 0px 0px;
-}
-
-header #logo-header {
-  color: var(--color-brown-600);
-}
-
-/* Container */
-.container {
-  margin: auto;
-}
-
-footer {
-  flex-shrink: 0;
-}
-
-@media only screen and (max-width: 1024px) {
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-/**************/
-/*-- Botton --*/
+/* Botton */
 
 .black-btn {
   color: #fff;
@@ -103,104 +72,4 @@ footer {
 .black-outline-btn:hover {
   color: var(--color-brown-400);
   border: 1px solid var(--color-brown-400);
-}
-
-button.black {
-  background-color: var(--color-brown-600);
-  color: var(--color-white);
-  padding: 12px 40px;
-  border-radius: 999px;
-  width: fit-content;
-  cursor: pointer;
-}
-
-/******************/
-/* Category Badge */
-/******************/
-.category-badge {
-  width: fit-content;
-  background-color: #d7f2e9;
-  color: #12b279;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  border-radius: 9999px;
-}
-
-/******************/
-/*-- Filter Btn --*/
-/******************/
-.filter-btn-container .filter-btn-wrap button.active {
-  background-color: #dad6d1;
-  color: #43403b;
-  border-radius: 8px;
-}
-/*****************/
-/*-- Post Link --*/
-/*****************/
-
-a.post-link h3:hover {
-  text-decoration: underline;
-}
-
-/************/
-/*-- Form --*/
-/************/
-
-.form-container {
-  max-width: 720px;
-  background-color: var(--color-brown-200);
-  padding: 60px 120px;
-  margin: auto;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.form-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.form-container label {
-  font-size: 16px;
-  display: block;
-  text-align: left;
-  padding-bottom: 8px;
-}
-
-.form-container input {
-  background-color: #fff;
-  border: 1px solid #dad6d1;
-}
-
-@media only screen and (max-width: 1024px) {
-  .form-container {
-    padding: 40px 16px;
-  }
-}
-
-/*-- Footer --*/
-
-footer .get-in-touch {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  color: var(--color-brown-500);
-}
-
-.footer-icon-wrapper {
-  width: 24px;
-  height: 24px;
-  background-color: var(--color-brown-500);
-}
-.footer-icon-wrapper:hover {
-  background-color: var(--color-brown-400);
-}
-
-.footer-icon-wrapper svg.footer-icon {
-  width: 12px;
 }
