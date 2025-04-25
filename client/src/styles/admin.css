@@ -1,0 +1,8 @@
+/* Header */
+header {
+  padding: 0px 24px;
+}
+
+header #logo-header {
+  color: var(--color-brown-600);
+}

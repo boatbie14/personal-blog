@@ -5,7 +5,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button } from "../ui/button";
 
 function ArticleSection() {
   const categories = ["Highlight", "Cat", "Inspiration", "General"];
